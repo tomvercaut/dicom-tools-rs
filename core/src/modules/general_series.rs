@@ -44,20 +44,19 @@ where
     type Error = Error;
 
     fn try_from(obj: &InMemDicomObject<D>) -> Result<Self, Self::Error> {
-        let mut series = GeneralSeries::default();
-        series.date = element_opt_to_str(obj, SERIES_DATE, "")?.to_string();
-        series.time = element_opt_to_str(obj, SERIES_TIME, "")?.to_string();
-        series.modality = obj.element(MODALITY)?.string()?.to_string();
-        series.description = element_opt_to_str(obj, SERIES_DESCRIPTION, "")?.to_string();
-        series.anatomical_orientation_type =
-            element_opt_to_str(obj, ANATOMICAL_ORIENTATION_TYPE, "")?.to_string();
-        series.body_part_examined = element_opt_to_str(obj, BODY_PART_EXAMINED, "")?.to_string();
-        series.protocol_name = element_opt_to_str(obj, PROTOCOL_NAME, "")?.to_string();
-        series.patient_position = element_opt_to_str(obj, PATIENT_POSITION, "")?.to_string();
-        series.instance_uid = element_opt_to_str(obj, SERIES_INSTANCE_UID, "")?.to_string();
-        series.number = element_opt_to_str(obj, SERIES_NUMBER, "")?.to_string();
-        series.laterality = element_opt_to_str(obj, LATERALITY, "")?.to_string();
-        Ok(series)
+        Ok(GeneralSeries {
+            date: element_opt_to_str(obj, SERIES_DATE, "")?.to_string(),
+            time: element_opt_to_str(obj, SERIES_TIME, "")?.to_string(),
+            modality: obj.element(MODALITY)?.string()?.to_string(),
+            description: element_opt_to_str(obj, SERIES_DESCRIPTION, "")?.to_string(),
+            anatomical_orientation_type: element_opt_to_str(obj, ANATOMICAL_ORIENTATION_TYPE, "")?.to_string(),
+            body_part_examined: element_opt_to_str(obj, BODY_PART_EXAMINED, "")?.to_string(),
+            protocol_name: element_opt_to_str(obj, PROTOCOL_NAME, "")?.to_string(),
+            patient_position: element_opt_to_str(obj, PATIENT_POSITION, "")?.to_string(),
+            instance_uid: element_opt_to_str(obj, SERIES_INSTANCE_UID, "")?.to_string(),
+            number: element_opt_to_str(obj, SERIES_NUMBER, "")?.to_string(),
+            laterality: element_opt_to_str(obj, LATERALITY, "")?.to_string(),
+        })
     }
 }
 

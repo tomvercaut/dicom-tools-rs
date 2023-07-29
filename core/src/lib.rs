@@ -18,5 +18,5 @@ pub mod modules;
 ///
 /// * `p` - path to a DICOM file
 pub fn read_dicom_file<P: AsRef<Path>>(path: P) -> Result<DefaultDicomObject, Error> {
-    open_file(path).map_err(|e| Error::from(e))
+    open_file(path).map_err(Error::from)
 }

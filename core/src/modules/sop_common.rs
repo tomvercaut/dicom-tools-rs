@@ -22,11 +22,9 @@ where
     type Error = Error;
 
     fn try_from(obj: &InMemDicomObject<D>) -> Result<Self, Self::Error> {
-        let class_uid = obj.element(tags::SOP_CLASS_UID)?.string()?.to_string();
-        let instance_uid = obj.element(tags::SOP_INSTANCE_UID)?.string()?.to_string();
         Ok(SOPCommon {
-            class_uid,
-            instance_uid,
+            class_uid: obj.element(tags::SOP_CLASS_UID)?.string()?.to_string(),
+            instance_uid: obj.element(tags::SOP_INSTANCE_UID)?.string()?.to_string(),
         })
     }
 }

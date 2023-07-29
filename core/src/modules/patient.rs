@@ -32,13 +32,13 @@ where
     type Error = Error;
 
     fn try_from(obj: &InMemDicomObject<D>) -> Result<Self, Self::Error> {
-        let mut patient = Self::default();
-        patient.name = element_opt_to_str(obj, PATIENT_NAME, "")?.to_string();
-        patient.id = element_opt_to_str(obj, PATIENT_ID, "")?.to_string();
-        patient.birth_date = element_opt_to_str(obj, PATIENT_BIRTH_DATE, "")?.to_string();
-        patient.birth_time = element_opt_to_str(obj, PATIENT_BIRTH_TIME, "")?.to_string();
-        patient.sex = element_opt_to_str(obj, PATIENT_SEX, "")?.to_string();
-        Ok(patient)
+        Ok(Patient {
+            name: element_opt_to_str(obj, PATIENT_NAME, "")?.to_string(),
+            id: element_opt_to_str(obj, PATIENT_ID, "")?.to_string(),
+            birth_date: element_opt_to_str(obj, PATIENT_BIRTH_DATE, "")?.to_string(),
+            birth_time: element_opt_to_str(obj, PATIENT_BIRTH_TIME, "")?.to_string(),
+            sex: element_opt_to_str(obj, PATIENT_SEX, "")?.to_string(),
+        })
     }
 }
 

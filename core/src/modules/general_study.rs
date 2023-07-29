@@ -35,15 +35,15 @@ where
     type Error = Error;
 
     fn try_from(obj: &InMemDicomObject<D>) -> Result<Self, Self::Error> {
-        let mut study = GeneralStudy::default();
-        study.date = element_opt_to_str(obj, STUDY_DATE, "")?.to_string();
-        study.time = element_opt_to_str(obj, STUDY_TIME, "")?.to_string();
-        study.accession_number = element_opt_to_str(obj, ACCESSION_NUMBER, "")?.to_string();
-        study.referring_physicians_name =
-            element_opt_to_str(obj, REFERRING_PHYSICIAN_NAME, "")?.to_string();
-        study.instance_uid = obj.element(STUDY_INSTANCE_UID)?.string()?.to_string();
-        study.id = element_opt_to_str(obj, STUDY_ID, "")?.to_string();
-        Ok(study)
+        Ok(GeneralStudy {
+            date: element_opt_to_str(obj, STUDY_DATE, "")?.to_string(),
+            time: element_opt_to_str(obj, STUDY_TIME, "")?.to_string(),
+            accession_number: element_opt_to_str(obj, ACCESSION_NUMBER, "")?.to_string(),
+            referring_physicians_name: element_opt_to_str(obj, REFERRING_PHYSICIAN_NAME, "")?
+                .to_string(),
+            instance_uid: obj.element(STUDY_INSTANCE_UID)?.string()?.to_string(),
+            id: element_opt_to_str(obj, STUDY_ID, "")?.to_string(),
+        })
     }
 }
 
