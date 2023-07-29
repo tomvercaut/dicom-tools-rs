@@ -1,0 +1,19 @@
+[workspace]
+members = [
+    "core",
+]
+
+[workspace.package]
+version = "0.1.0"
+edition = "2021"
+authors = ["Tom <tomvercaut@gmail.com>"]
+readme = "README.md"
+license = "MIT OR Apache-2.0"
+description = ""
+
+[workspace.dependencies]
+dicom-core = { version = "0.6.0" }
+dicom-object = "0.6.0"
+dicom-dictionary-std = "0.6.0"
+
+thiserror = "1"

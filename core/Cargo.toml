@@ -1,0 +1,10 @@
+[package]
+name = "dicom-tools-core"
+version.workspace = true
+authors.workspace = true
+
+[dependencies]
+dicom-core = { workspace = true }
+dicom-object = { workspace = true }
+dicom-dictionary-std = { workspace = true }
+thiserror = { workspace = true }
