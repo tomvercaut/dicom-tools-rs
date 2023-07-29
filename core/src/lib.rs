@@ -9,7 +9,8 @@ use std::result::Result;
 mod error;
 pub use error::Error;
 
-mod modules;
+pub(crate) mod helper;
+pub mod modules;
 
 /// Read a DICOM object from a file.
 ///
