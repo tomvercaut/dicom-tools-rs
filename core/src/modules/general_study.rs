@@ -54,7 +54,7 @@ mod tests {
     use dicom_object::mem::InMemElement;
 
     #[test]
-    fn sop_common_try_from() {
+    fn general_study_try_from() {
         let mut obj = InMemDicomObject::new_empty();
         let _ = obj.put_element(InMemElement::new(STUDY_DATE, VR::DA, "20230729"));
         let _ = obj.put_element(InMemElement::new(STUDY_TIME, VR::TM, "21:59:59"));
@@ -81,7 +81,7 @@ mod tests {
     }
 
     #[test]
-    fn sop_common_try_from_no_optional() {
+    fn general_study_try_from_no_optional() {
         let mut obj = InMemDicomObject::new_empty();
         let _ = obj.put_element(InMemElement::new(STUDY_INSTANCE_UID, VR::UI, "1.2.3.4"));
         let res = GeneralStudy::try_from(&obj);
