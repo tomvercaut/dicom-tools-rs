@@ -1,3 +1,6 @@
+mod frame_of_reference;
+pub use modules::frame_of_reference::*;
+
 mod general_series;
 pub use modules::general_series::*;
 
