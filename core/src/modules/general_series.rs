@@ -49,7 +49,8 @@ where
             time: element_opt_to_str(obj, SERIES_TIME, "")?.to_string(),
             modality: obj.element(MODALITY)?.string()?.to_string(),
             description: element_opt_to_str(obj, SERIES_DESCRIPTION, "")?.to_string(),
-            anatomical_orientation_type: element_opt_to_str(obj, ANATOMICAL_ORIENTATION_TYPE, "")?.to_string(),
+            anatomical_orientation_type: element_opt_to_str(obj, ANATOMICAL_ORIENTATION_TYPE, "")?
+                .to_string(),
             body_part_examined: element_opt_to_str(obj, BODY_PART_EXAMINED, "")?.to_string(),
             protocol_name: element_opt_to_str(obj, PROTOCOL_NAME, "")?.to_string(),
             patient_position: element_opt_to_str(obj, PATIENT_POSITION, "")?.to_string(),

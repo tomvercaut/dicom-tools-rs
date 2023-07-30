@@ -26,8 +26,12 @@ where
     fn try_from(obj: &InMemDicomObject<D>) -> Result<Self, Self::Error> {
         Ok(FrameOfReference {
             uid: obj.element(FRAME_OF_REFERENCE_UID)?.string()?.to_string(),
-            position_reference_indicator:
-            element_opt_to_str(obj, POSITION_REFERENCE_INDICATOR, "")?.to_string(),
+            position_reference_indicator: element_opt_to_str(
+                obj,
+                POSITION_REFERENCE_INDICATOR,
+                "",
+            )?
+            .to_string(),
         })
     }
 }
