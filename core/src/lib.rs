@@ -9,6 +9,7 @@ use std::result::Result;
 mod error;
 pub use error::Error;
 
+pub mod data;
 pub(crate) mod helper;
 pub mod modules;
 
